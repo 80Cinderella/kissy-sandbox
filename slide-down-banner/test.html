@@ -3,28 +3,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="" />
-<title></title>
+<title>简单的下拉横幅</title>
 </head>
 <body>
-
-<div id="J_SlideDownBanner"></div>
-
-<script type="text/javascript" src="../../kissy/build/packages/kissy.js"></script>
-<script type="text/javascript" src="slide-down.js"></script>
 <style type="text/css">
 	img {
 		border:none;
 	}
 </style>
+
+
+<div style="height:240px;">
+	自动收起：
+	<div id="J_SlideDownBanner"></div>
+</div>
+
+<div style="height:240px;">
+	不自动收起：
+	<div id="J_SlideDownBanner2"></div>
+</div>
+
+<script type="text/javascript" src="../../kissy/build/packages/kissy.js"></script>
+<script type="text/javascript" src="slide-down.js"></script>
+
 <script type="text/javascript">
-var o = new KISSY.SlideDownBanner('J_SlideDownBanner', {
+var oBanner1 = new KISSY.SlideDownBanner('J_SlideDownBanner', {
 	duration: 1.5,
-	stay:1,
+	stay:2,
 	autoFold: true,
 	imageSrc:'http://img01.taobaocdn.com/tps/i1/T1O3NRXndIXXXXXXXX-950-200.jpg',
 	link:'http://wabao.taobao.com/',
 	callback: function (){
-		KISSY.log('最后的回调');
+		KISSY.log('最后的回调1');
+	}
+});
+
+
+var oBanner2 = new KISSY.SlideDownBanner('J_SlideDownBanner2', {
+	duration: 1.5,
+	stay:2,
+	autoFold: false,
+	imageSrc:'http://img01.taobaocdn.com/tps/i1/T1O3NRXndIXXXXXXXX-950-200.jpg',
+	link:'http://wabao.taobao.com/',
+	callback: function (){
+		KISSY.log('最后的回调2');
 	}
 });
 
