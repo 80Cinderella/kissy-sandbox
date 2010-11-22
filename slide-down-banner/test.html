@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="" />
 <title>简单的下拉横幅</title>
 </head>
 <body>
@@ -28,25 +27,19 @@
 
 <script type="text/javascript">
 var oBanner1 = new KISSY.SlideDownBanner('J_SlideDownBanner', {
-	duration: 1.5,
-	stay:2,
 	autoFold: true,
 	imageSrc:'http://img01.taobaocdn.com/tps/i1/T1O3NRXndIXXXXXXXX-950-200.jpg?t=1111.css',
-	link:'http://wabao.taobao.com/',
-	callback: function (){
-		KISSY.log('最后的回调1');
-	}
+	link:'http://wabao.taobao.com/'
 });
 
 
 var oBanner2 = new KISSY.SlideDownBanner('J_SlideDownBanner2', {
-	duration: 1.5,
-	stay:2,
+	duration: 5,
 	autoFold: false,
 	imageSrc:'http://img01.taobaocdn.com/tps/i1/T1O3NRXndIXXXXXXXX-950-200.jpg?t=1111.css',
 	link:'http://wabao.taobao.com/',
 	callback: function (){
-		KISSY.log('最后的回调2');
+		KISSY.log('如果回调比较短，可以直接内联地传进来，如果比较长，可以用详细的自定事件来扩展');
 	}
 });
 

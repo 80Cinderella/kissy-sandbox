@@ -1,6 +1,7 @@
 /**
  * @module SlideDownBanner
  * @author 龙刚 <tblonggang@gmail.com>
+ *
  */
 
 KISSY.add('slide-down-banner', function (S, undefined){
@@ -78,7 +79,8 @@ KISSY.add('slide-down-banner', function (S, undefined){
 				self.anim[animObjectId] = undefined;
 				self.fire('bannerFolded', self);
 
-				config.callback();	// 更多时候，我们可以直接用这个，因为它很方便
+				// 更多时候，我们可以直接用这个，因为它很方便，如果代码较多，还是直接通过self.on()来注册事件，提升代码的可读性
+				config.callback && config.callback();
 			}).run();
 		}
 
