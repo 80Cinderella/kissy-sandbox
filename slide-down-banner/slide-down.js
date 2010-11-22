@@ -1,3 +1,8 @@
+/**
+ * @module SlideDownBanner
+ * @author 龙刚 <tblonggang@gmail.com>
+ */
+
 KISSY.add('slide-down-banner', function (S, undefined){
 	var S = KISSY, DOM = S.DOM, Event = S.Event;
 
@@ -13,17 +18,15 @@ KISSY.add('slide-down-banner', function (S, undefined){
 
 		config = config || {};
 		config = S.merge(defaultConfig, config);
-		this.config = config;
 
+		this.config = config;
 		this.container = DOM.get('#'+container);
 
 		this._init();
 	}
 
 	S.augment(SlideDownBanner, S.EventTarget, {
-
 		_init: function (){
-
 			var self = this, config = self.config;
 			if (!self.container) return;
 
@@ -34,22 +37,25 @@ KISSY.add('slide-down-banner', function (S, undefined){
 
 				// 这里的ready是针对上面嵌入一张图片，在它load以后再操作
 				S.ready(function (){
-					var bannerImage = DOM.get('img', self.container);
-					config.bannerImageHeight = bannerImage.offsetHeight;
-
 					DOM.css(self.container, {height: 0, overflow: 'hidden'});
+					var bannerImage = DOM.get('img', self.container);
 
-					// 绑定展开完成后的自定义事件
-					if (config.autoFold){
-						self.on('bannerExpanded', function (){
-							this.anim['id-timeout-for-folding'] = S.later(function (){
-								self.fold();
-							}, config.stay * 1000, false, self, null);
-						})
-					}
+					// 在图片载入后再展开
+					Event.on(bannerImage, 'load', function (){
+						config.bannerImageHeight = bannerImage.offsetHeight;
 
-					// 展开下拉横幅
-					self.expand();
+						// 绑定展开完成后的自定义事件
+						if (config.autoFold){
+							self.on('bannerExpanded', function (){
+								this.anim['id-timeout-for-folding'] = S.later(function (){
+									self.fold();
+								}, config.stay * 1000, false, self, null);
+							})
+						}
+
+						// 展开下拉横幅
+						self.expand();
+					});
 				});
 			});
 		},
@@ -87,6 +93,6 @@ KISSY.add('slide-down-banner', function (S, undefined){
  *      考虑是否将expand()与fold()合并成一个方法，不过考虑到以后会添加什么东西，到时可能又要拆分，所以暂时
  *      先不合并了。
  *
- *
+ *      相关的异常流未做完整判断，需要跟进，当然，如果在确保不出现异常流的情况下，可以放心使用。
  *
  */
