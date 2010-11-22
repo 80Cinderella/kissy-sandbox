@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<link rel="stylesheet" type="text/css" href="" />
+<title></title>
+</head>
+<body>
+
+<div id="J_SlideDownBanner"></div>
+
+<script type="text/javascript" src="../../kissy/build/packages/kissy.js"></script>
+<script type="text/javascript" src="slide-down.js"></script>
+
+<script type="text/javascript">
+new KISSY.SlideDownBanner('J_SlideDownBanner', {
+	duration: 5,
+	autoFold: true,
+	callback: function (){
+		KISSY.log('最后的回调');
+	}
+});
+
+</script>
+</body>
+</html>
