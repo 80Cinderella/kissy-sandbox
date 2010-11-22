@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="" />
 <title></title>
 </head>
@@ -11,15 +11,23 @@
 
 <script type="text/javascript" src="../../kissy/build/packages/kissy.js"></script>
 <script type="text/javascript" src="slide-down.js"></script>
-
+<style type="text/css">
+	img {
+		border:none;
+	}
+</style>
 <script type="text/javascript">
-new KISSY.SlideDownBanner('J_SlideDownBanner', {
-	duration: 5,
+var o = new KISSY.SlideDownBanner('J_SlideDownBanner', {
+	duration: 1.5,
+	stay:1,
 	autoFold: true,
+	imageSrc:'http://img01.taobaocdn.com/tps/i1/T1O3NRXndIXXXXXXXX-950-200.jpg',
+	link:'http://wabao.taobao.com/',
 	callback: function (){
-		KISSY.log('最后的回调');
+		KISSY.log('鏈�鍚庣殑鍥炶皟');
 	}
 });
+
 
 </script>
 </body>
